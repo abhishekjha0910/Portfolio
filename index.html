@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Abhishek Dharmesh Jha - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3B82F6",
+                        "background-light": "#F9FAFB",
+                        "background-dark": "#111827",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#1F2937",
+                        "text-light": "#1F2937",
+                        "text-dark": "#F9FAFB",
+                        "subtext-light": "#6B7280",
+                        "subtext-dark": "#9CA3AF"
+                    },
+                    fontFamily: {
+                        display: ["Poppins", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .section-title {
+            @apply text-3xl font-bold text-primary mb-6 pb-2 border-b-2 border-primary/30;
+        }
+        /* Updated card to include a hover effect */
+        .card {
+            @apply bg-card-light dark:bg-card-dark rounded-lg shadow-lg p-6 transition-all duration-300 transform hover:scale-105 hover:shadow-xl;
+        }
+        /* Style for the new particle canvas container */
+        .canvas-container {
+            width: 320px;
+            height: 320px;
+        }
+        #particle-canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 0.5rem;
+        }
+        @media (min-width: 768px) {
+            .canvas-container {
+                width: 350px;
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark antialiased">
+    <header class="bg-card-light dark:bg-card-dark shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-primary">Abhishek Jha</h1>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a class="text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary transition" href="#about">About</a>
+                <a class="text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary transition" href="#experience">Experience</a>
+                <a class="text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary transition" href="#projects">Projects</a>
+                <a class="text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary transition" href="#skills">Skills</a>
+                <a class="text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary transition" href="#education">Education</a>
+                <a class="text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary transition" href="#certifications">Certifications</a>
+            </nav>
+            <button class="p-2 rounded-full text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark focus:outline-none" id="dark-mode-toggle">
+                <span class="material-icons"></span>
+            </button>
+            <button class="md:hidden p-2">
+                <span class="material-icons text-primary">menu</span>
+            </button>
+        </div>
+    </header>
+    <main class="container mx-auto px-6 py-12">
+        <section class="flex flex-col md:flex-row items-center justify-between py-20" id="about">
+            <div class="md:w-3/5 text-center md:text-left mb-10 md:mb-0" data-aos="fade-right">
+                <h2 class="text-5xl font-bold text-text-light dark:text-text-dark leading-tight mb-4">
+                    Hi, I'm <span class="text-primary">Abhishek</span>
+                </h2>
+                <h3 class="text-2xl font-medium text-subtext-light dark:text-subtext-dark mb-6">Software Engineer</h3>
+                <p class="text-lg text-subtext-light dark:text-subtext-dark mb-8">
+                    Passionate and motivated software engineer eager to apply strong programming and problem-solving skills to real-world projects. Quick learner and team player, focused on building efficient, user-friendly solutions. Ready to contribute to impactful software development while continuously growing my technical expertise.
+                </p>
+                <div class="flex justify-center md:justify-start space-x-4">
+                    <a class="text-primary hover:text-primary/80 transition" href="mailto:abhishekha.sknsits@gmail.com"><span class="material-icons text-4xl">email</span></a>
+                    <a class="text-primary hover:text-primary/80 transition" href="https://www.linkedin.com/in/abhishek-jha-97977124a/" target="_blank">
+                        <svg class="h-9 w-9" fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+                    </a>
+                    <a class="text-primary hover:text-primary/80 transition" href="https://github.com/abhishekjha0910" target="_blank">
+                        <svg class="h-9 w-9" fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-2/5 flex justify-center" data-aos="fade-left">
+                <div class="canvas-container">
+                    <canvas id="particle-canvas"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16" id="skills" data-aos="fade-up">
+            <h2 class="section-title text-center">Skills & Interests</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card" data-tilt data-aos="zoom-in">
+                    <h3 class="text-xl font-semibold mb-3 text-primary flex items-center"><span class="material-icons mr-2">code</span>Programming Languages</h3>
+                    <p class="text-subtext-light dark:text-subtext-dark">Java, Python, Dart, JavaScript</p>
+                </div>
+                <div class="card" data-tilt data-aos="zoom-in" data-aos-delay="100">
+                    <h3 class="text-xl font-semibold mb-3 text-primary flex items-center"><span class="material-icons mr-2">build</span>Frameworks & Tools</h3>
+                    <p class="text-subtext-light dark:text-subtext-dark">HTML/CSS, Flutter, LangChain, Power BI</p>
+                </div>
+                <div class="card" data-tilt data-aos="zoom-in" data-aos-delay="200">
+                    <h3 class="text-xl font-semibold mb-3 text-primary flex items-center"><span class="material-icons mr-2">storage</span>Databases</h3>
+                    <p class="text-subtext-light dark:text-subtext-dark">MySQL, Firebase</p>
+                </div>
+                <div class="card" data-tilt data-aos="zoom-in">
+                    <h3 class="text-xl font-semibold mb-3 text-primary flex items-center"><span class="material-icons mr-2">memory</span>Core Concepts</h3>
+                    <p class="text-subtext-light dark:text-subtext-dark">OOP, Data Structures, Logical Reasoning</p>
+                </div>
+                <div class="card" data-tilt data-aos="zoom-in" data-aos-delay="100">
+                    <h3 class="text-xl font-semibold mb-3 text-primary flex items-center"><span class="material-icons mr-2">psychology</span>Soft Skills</h3>
+                    <p class="text-subtext-light dark:text-subtext-dark">Critical Thinking, Project Ownership, Problem-Solving</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16" id="experience" data-aos="fade-up">
+            <h2 class="section-title text-center">Experience</h2>
+            <div class="relative border-l-2 border-primary/30 ml-4 md:ml-0">
+                <div class="mb-10 ml-8">
+                    <span class="absolute flex items-center justify-center w-8 h-8 bg-primary rounded-full -left-4 ring-8 ring-background-light dark:ring-background-dark">
+                        <span class="material-icons text-white">work</span>
+                    </span>
+                    <div class="card p-6" data-tilt>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold text-text-light dark:text-text-dark">Android Development Intern</h3>
+                                <p class="font-semibold text-primary mb-1">CodeCatalyst</p>
+                            </div>
+                            <span class="text-sm font-medium text-subtext-light dark:text-subtext-dark">Oct 2024 – Mar 2025</span>
+                        </div>
+                        <ul class="list-disc list-inside mt-4 space-y-2 text-subtext-light dark:text-subtext-dark">
+                            <li>Developed and optimized Android applications using Flutter and Firebase.</li>
+                            <li>Collaborated with senior developers to deliver features on time, improving code efficiency and app performance.</li>
+                            <li>Enhanced UI/UX design, performed debugging, and ensured cross-platform compatibility.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16" id="projects" data-aos="fade-up">
+            <h2 class="section-title text-center">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card" data-tilt data-aos="fade-up">
+                    <h3 class="text-xl font-semibold mb-2 text-text-light dark:text-text-dark">SpeakUp - Anonymous Complaint Resolver System</h3>
+                    <p class="text-subtext-light dark:text-subtext-dark mb-4">Anonymous complaint management system using Flutter and Firebase with admin dashboard, issue categorization, and real-time status tracking.</p>
+                    <a class="font-semibold text-primary hover:underline" href="https://github.com/abhishekjha0910/anonymous_complaint_resolver_system" target="_blank" rel="noopener noreferrer">View on GitHub <span class="material-icons text-sm align-middle">open_in_new</span></a>
+                </div>
+                <div class="card" data-tilt data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-semibold mb-2 text-text-light dark:text-text-dark">Sahayak 2.0 - AI Knowledge Assistant</h3>
+                    <p class="text-subtext-light dark:text-subtext-dark mb-4">AI-powered assistant using LangChain RAG, Flutter, and Firebase. Provides speech interaction, analytics, and context-aware responses.</p>
+                    <a class="font-semibold text-primary hover:underline" href="https://github.com/abhishekjha0910/Sahayak" target="_blank" rel="noopener noreferrer">View on GitHub <span class="material-icons text-sm align-middle">open_in_new</span></a>
+                </div>
+                <div class="card" data-tilt data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-semibold mb-2 text-text-light dark:text-text-dark">CatchUp – Real-Time Update Notification App</h3>
+                    <p class="text-subtext-light dark:text-subtext-dark mb-4">Mobile application built with Flutter and Firebase that delivers instant notifications for important updates such as exam results, job status, and organizational announcements.</p>
+                    <a class="font-semibold text-primary hover:underline" href="https://github.com/abhishekjha0910/catchup" target="_blank" rel="noopener noreferrer">View on GitHub <span class="material-icons text-sm align-middle">open_in_new</span></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16" id="education" data-aos="fade-up">
+            <h2 class="section-title text-center">Education</h2>
+            <div class="relative border-l-2 border-primary/30 ml-4 md:ml-0">
+                <div class="mb-10 ml-8">
+                    <span class="absolute flex items-center justify-center w-8 h-8 bg-primary rounded-full -left-4 ring-8 ring-background-light dark:ring-background-dark">
+                        <span class="material-icons text-white">school</span>
+                    </span>
+                    <div class="card p-6" data-tilt>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold text-text-light dark:text-text-dark">SKN SINHGAD INSTITUTE OF TECHNOLOGY AND SCIENCE -[SKNSITS] LONAVALA, PUNE</h3>
+                                <p class="font-semibold text-primary mb-1">B.E. in Computer Science & Engineering</p>
+                            </div>
+                            <span class="text-sm font-medium text-subtext-light dark:text-subtext-dark">2021 – 2025</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-10 ml-8">
+                    <span class="absolute flex items-center justify-center w-8 h-8 bg-primary rounded-full -left-4 ring-8 ring-background-light dark:ring-background-dark">
+                        <span class="material-icons text-white">school</span>
+                    </span>
+                    <div class="card p-6" data-tilt>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold text-text-light dark:text-text-dark">Royal College of Science and Commerce, Dombivli(E)</h3>
+                                <p class="font-semibold text-primary mb-1">12th (MSBSHSE)</p>
+                            </div>
+                            <span class="text-sm font-medium text-subtext-light dark:text-subtext-dark">2021</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-10 ml-8">
+                    <span class="absolute flex items-center justify-center w-8 h-8 bg-primary rounded-full -left-4 ring-8 ring-background-light dark:ring-background-dark">
+                        <span class="material-icons text-white">school</span>
+                    </span>
+                    <div class="card p-6" data-tilt>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold text-text-light dark:text-text-dark">Omkar English Medium School, Dombivli(E)</h3>
+                                <p class="font-semibold text-primary mb-1">10th (CBSE)</p>
+                            </div>
+                            <span class="text-sm font-medium text-subtext-light dark:text-subtext-dark">2019</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section class="py-16" id="certifications" data-aos="fade-up">
+            <h2 class="section-title text-center">Certifications</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Add your certificate links in the href="#" attribute -->
+                <a href="https://www.hackerrank.com/certificates/2c50e3a3107b" target="_blank" rel="noopener noreferrer" class="block" aria-label="Python (Basic) ">
+                    <div class="card flex items-center h-full" data-tilt>
+                        <span class="material-icons text-primary text-3xl mr-4">workspace_premium</span>
+                        <p class="text-text-light dark:text-text-dark">Python (Basic) </p>
+                    </div>
+                </a>
+                <a href="https://www.hackerrank.com/certificates/b0163ca447d7" target="_blank" rel="noopener noreferrer" class="block" aria-label="Problem Solving (Basic)">
+                    <div class="card flex items-center h-full" data-tilt>
+                        <span class="material-icons text-primary text-3xl mr-4">workspace_premium</span>
+                        <p class="text-text-light dark:text-text-dark">Problem Solving (Basic)</p>
+                    </div>
+                </a>
+                <a href="https://www.hackerrank.com/certificates/13a9be499945" target="_blank" rel="noopener noreferrer" class="block" aria-label="Java (Basic)">
+                    <div class="card flex items-center h-full" data-tilt>
+                        <span class="material-icons text-primary text-3xl mr-4">workspace_premium</span>
+                        <p class="text-text-light dark:text-text-dark">Java (Basic)</p>
+                    </div>
+                </a>
+                <a href="https://www.hackerrank.com/certificates/9635a2048e5f" target="_blank" rel="noopener noreferrer" class="block" aria-label="SQL (Intermediate)">
+                    <div class="card flex items-center h-full" data-tilt>
+                        <span class="material-icons text-primary text-3xl mr-4">workspace_premium</span>
+                        <p class="text-text-light dark:text-text-dark">SQL (Intermediate)</p>
+                    </div>
+                </a>
+                <a href="https://ninjasfiles.s3.amazonaws.com/certificate-254327-4993f3869b556a7f0c33dde979857e0b.pdf" target="_blank" rel="noopener noreferrer" class="block" aria-label="OOPS in Java">
+                    <div class="card flex items-center h-full" data-tilt>
+                        <span class="material-icons text-primary text-3xl mr-4">workspace_premium</span>
+                        <p class="text-text-light dark:text-text-dark">OOPS in Java</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-card-light dark:bg-card-dark mt-16">
+        <div class="container mx-auto px-6 py-8 text-center text-subtext-light dark:text-subtext-dark">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a class="hover:text-primary transition" href="mailto:abhishekha.sknsits@gmail.com"><span class="material-icons text-3xl">email</span></a>
+                <a class="hover:text-primary transition" href="https://www.linkedin.com/in/abhishek-jha-97977124a/" target="_blank">
+                    <svg class="h-8 w-8" fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+                </a>
+                <a class="hover:text-primary transition" href="https://github.com/abhishekjha0910" target="_blank">
+                    <svg class="h-8 w-8" fill="currentColor" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                </a>
+            </div>
+            <p>© 2025 Abhishek Dharmesh Jha. All rights reserved.</p>
+            <p class="text-sm mt-2">Designed with passion and code.</p>
+        </div>
+    </footer>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+
+    <script>
+        // --- Dark Mode Toggle ---
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const toggleIcon = darkModeToggle.querySelector('.material-icons');
+        const updateIcon = () => {
+            if (document.documentElement.classList.contains('dark')) {
+                toggleIcon.textContent = 'light_mode';
+            } else {
+                toggleIcon.textContent = 'dark_mode';
+            }
+        };
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        updateIcon();
+        darkModeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+            updateIcon();
+        });
+
+        // --- Initialize AOS (Animate on Scroll) ---
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+        });
+
+        // --- Initialize Vanilla-Tilt.js for cards ---
+        VanillaTilt.init(document.querySelectorAll(".card"), {
+            max: 15,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.5,
+        });
+
+        // --- Particle Constellation Animation ---
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouse = { x: null, y: null, radius: 150 };
+
+        function setupCanvas() {
+            const container = canvas.parentElement;
+            canvas.width = container.offsetWidth;
+            canvas.height = container.offsetHeight;
+        }
+
+        class Particle {
+            constructor(x, y, directionX, directionY, size, color) {
+                this.x = x;
+                this.y = y;
+                this.directionX = directionX;
+                this.directionY = directionY;
+                this.size = size;
+                this.color = color;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+            update() {
+                if (this.x > canvas.width || this.x < 0) {
+                    this.directionX = -this.directionX;
+                }
+                if (this.y > canvas.height || this.y < 0) {
+                    this.directionY = -this.directionY;
+                }
+                // Mouse interaction
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx*dx + dy*dy);
+                if (distance < mouse.radius + this.size){
+                    if(mouse.x < this.x && this.x < canvas.width - this.size * 10){
+                        this.x += 1;
+                    }
+                    if(mouse.x > this.x && this.x > this.size * 10){
+                        this.x -= 1;
+                    }
+                    if(mouse.y < this.y && this.y < canvas.height - this.size * 10){
+                        this.y += 1;
+                    }
+                     if(mouse.y > this.y && this.y > this.size * 10){
+                        this.y -= 1;
+                    }
+                }
+
+                this.x += this.directionX;
+                this.y += this.directionY;
+                this.draw();
+            }
+        }
+
+        function getParticleColor() {
+            return document.documentElement.classList.contains('dark') ? 'rgba(59, 130, 246, 0.7)' : 'rgba(59, 130, 246, 1)';
+        }
+
+        function init() {
+            particles = [];
+            let numberOfParticles = (canvas.height * canvas.width) / 9000;
+            for (let i = 0; i < numberOfParticles; i++) {
+                let size = (Math.random() * 2) + 1;
+                let x = (Math.random() * ((canvas.width - size * 2) - (size * 2)) + size * 2);
+                let y = (Math.random() * ((canvas.height - size * 2) - (size * 2)) + size * 2);
+                let directionX = (Math.random() * 0.4) - 0.2;
+                let directionY = (Math.random() * 0.4) - 0.2;
+                particles.push(new Particle(x, y, directionX, directionY, size, getParticleColor()));
+            }
+        }
+
+        function connect() {
+            let opacityValue = 1;
+            for (let a = 0; a < particles.length; a++) {
+                for (let b = a; b < particles.length; b++) {
+                    let distance = ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x)) +
+                        ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y));
+                    if (distance < (canvas.width / 7) * (canvas.height / 7)) {
+                        opacityValue = 1 - (distance / 20000);
+                        let color = getParticleColor().replace(/,( ?[0-9.]+)\)/, `,${opacityValue})`);
+                        ctx.strokeStyle = color;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+        
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].color = getParticleColor(); // Update color for theme changes
+                particles[i].update();
+            }
+            connect();
+        }
+
+        window.addEventListener('resize', () => {
+            setupCanvas();
+            init();
+        });
+
+        canvas.addEventListener('mousemove', (event) => {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = event.clientX - rect.left;
+            mouse.y = event.clientY - rect.top;
+        });
+
+        canvas.addEventListener('mouseout', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+        
+        // Ensure canvas is set up and initialized after the DOM is fully loaded
+        window.addEventListener('load', () => {
+            setupCanvas();
+            init();
+            animate();
+        });
+
+    </script>
+</body>
+
+</html>
